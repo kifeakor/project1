@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+<form class="nav-item active", action="{{ url_for('index') }}" method="GET">
+  <button class="btn btn-primary btn-lg btn-block">Book Review Home page</button>
+</form>
+    <form class="nav-item active", action="{{ url_for('signout') }}" method="post">
+      <button class="btn btn-primary btn-lg btn-block">{{username}} Signout</button>
+    </form>
+{% endblock %}
+
+{% block body %}
+    {% for books in book %}
+        <h3> Title:{{ books.title}}, By:{{ books.author}} {{books.year}}</h3>
+
+
+
+    <p>
+      we hope you find the reviews on our site for {{books.title}} helpful if you are looking for a great book.
+      if you have read the book please leave a review below to help other book readers that visit our site.
+      lastly we will lke to thank you for visiting us today.
+
+      with best wishes from the Book review team.
+    </p>
+   <h3>Reviews</h3>
+   {% for reviews in rev %}
+
+       <ul>
+            {% if reviews %}
+
+              <li>
+                  User:{{reviews.username}}
+                  wrote:"{{reviews.note }}"
+              </li>
+            {% else %}
+               <li>No book by {{author}} was found! please try again</li>
+           {% endif %}
+      </ul>
+    {% endfor %}
+{% endfor %}
+
+<form class="nav-item active", action="{{ url_for('add') }}" method="POST">
+  <button class="btn btn-primary btn-lg">Write a review about this book</button>
+</form>
+{% endblock %}

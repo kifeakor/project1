@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block heading %}
+<form class="nav-item active", action="{{ url_for('index') }}" method="GET">
+  <button class="btn btn-primary btn-lg btn-block">Book Review Home page</button>
+</form>
+  <form class="nav-item active", action="{{ url_for('signout') }}" method="post">
+    <button class="btn btn-primary btn-lg btn-block">{{username}} Signout</button>
+  </form>
+{% endblock %}
+{% block body %}
+    <h2>search for books</h2>
+
+      <p>
+        Hello, welcome to our book review site
+        you can search for books below with isbn number, Book title or Author.
+        Enjoy!
+     </p>
+  <div>
+     <form action="{{ url_for('title_search') }}" method="post">
+       <input type="text" name="title" placeholder="serach by title">
+       <button type="submit">Search by title</button>
+    </form>
+
+    <form action="{{ url_for('author_search') }}" method="post">
+      <input type="text" name="author" placeholder="Search by author">
+      <button type="submit">search by author</button>
+   </form>
+  </div>
+
+{% endblock %}

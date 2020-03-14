@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+<form class="nav-item active", action="{{ url_for('index') }}" method="GET">
+  <button class="btn btn-primary btn-lg btn-block">Book Review Home page</button>
+</form>
+{% endblock %}
+
+{% block body %}
+
+  <h2>Please Register below</h2>
+
+    <p>
+	   The trick to getting sales of a good book to go viral is to get good reviews from trusted sources who have top exposure. We can offer you all of that. Someone on our team of reviewers will read your book and honestly review it. Then the review will be displayed on this website full of potential interested buyers who love to read and who trust the reviewers!
+    </p>
+
+    <div>
+	    <form action="{{ url_for('submit') }}" method="post">
+          <input type="text" name='name' placeholder="Enter Your full name">
+          <input type="email" name='email' placeholder="Enter your email address">
+          <input type="password" name='password' placeholder="Enter Your Password">
+          <button type="submit">Register</button>
+      </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+<form class="nav-item active", action="{{ url_for('index') }}" method="GET">
+  <button class="btn btn-primary btn-lg btn-block">Book Review Home page</button>
+</form>
+    <form class="nav-item active", action="{{ url_for('signout') }}" method="post">
+      <button class="btn btn-primary btn-lg btn-block">{{username}} Signout</button>
+    </form>
+{% endblock %}
+
+{% block body %}
+
+  <h2>please find book details below</h2>
+
+
+  <ul title="Book details">
+    {% for books in book %}
+  	     <li>
+
+           <a href="{{ url_for('reviews',book_id=books.id) }}" >
+              ISBN: {{books.isbn }}
+              Title:{{books.title}}
+              Author:{{books.author}}
+              Year: {{books.year}}
+          </a>
+        </li>
+
+    {% else %}
+          <li>No book by {{author}} was found! please try again</li>
+    {% endfor %}
+  </ul>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+  Welcome
+  <form class="nav-item active", action="{{ url_for('login') }}" method="post">
+      <button class="btn btn-primary btn-lg btn-block">Login</button>
+  </form>
+  <form class="nav-item active", action="{{ url_for('register') }}" method="post">
+      <button class="btn btn-secondry btn-lg btn-block">Register</button>
+  </form>
+{% endblock %}
+{% block body %}
+
+
+   <h2>welcome to my book review website</h2>
+
+   <img src="/static/image.jpg" alt="book" style="width:30%">
+
+        <p>
+ 	          We will like to welcome you to our book review website where you
+            can write reviews about books and can also
+            read reviews made by other people.
+ 	          to get started you will need to register first below or login if
+            you have registered with us before.
+            we hope you enjoy your experience on our site and we look foward to seeing you again.
+        </p>
+
+
+{% endblock %}
