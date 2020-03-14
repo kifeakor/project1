@@ -1,6 +1,6 @@
 import os
 
-from flask import Flask, session, render_template, request, redirect
+from flask import Flask, session, render_template, request, redirect, flash
 from flask import session as login_session
 from flask_session import Session
 from sqlalchemy import create_engine, text
