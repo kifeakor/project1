@@ -79,7 +79,7 @@ def signout():
 @app.route("/title_search", methods=["POST"])
 def title_search():
     title=request.form.get('title')
-    books =session.query(Books).filter_by(title=title).all()
+    books =session.query(Books).filter(Books.title.ilike('%' + str(title)+ '%')).all()
     for book in books:
         login_session['book_id']=book.id
     print(books)
@@ -89,10 +89,10 @@ def title_search():
 @app.route("/author_search", methods=["POST"])
 def author_search():
     author=request.form.get('author')
-    books =session.query(Books).filter_by(author=author).all()
+    books =session.query(Books).filter(Books.author.ilike('%' +str(author)+ '%')).all()
     for book in books:
+        print(books)
         login_session['book_id']=book.id
-    print(books)
     username = login_session['username']
     return render_template("book.html",username=username, book=books,author=author)
 
