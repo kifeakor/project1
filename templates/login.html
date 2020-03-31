@@ -7,9 +7,9 @@
 {% endblock %}
 
 {% block body %}
-  <h2>Please Login</h2>
-
-    <p>
+<div class="jumbotron">
+  <h2 class="display-4">Please Login</h2>
+  <p class="lead">
 	   The trick to finding a good book to read is by taking time to read reviews
      from trusted sources who have top exposure.
      We can offer you all of that.
@@ -18,13 +18,11 @@
      The review will be displayed on this website for potential interested buyers
       who love to read!
     </p>
-
-    <div>
-	    <form action="{{ url_for('validation') }}" method="post">
-          <input type="text" name="email" placeholder="Enter email address">
-          <input type="password" name="password" placeholder="Enter Your Password">
-          <button type="submit" class="btn btn-primary btn-lg">login</button>
-        </form>
-    </div>
+	  <form action="{{ url_for('validation') }}" method="post">
+        <input type="text" name="email" placeholder="Enter email address">
+        <input type="password" name="password" placeholder="Enter Your Password">
+        <button type="submit" class="btn btn-primary btn-lg">login</button>
+    </form>
+  </div>
 
 {% endblock %}
